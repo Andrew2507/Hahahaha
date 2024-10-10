@@ -1,0 +1,11 @@
+from itertools import *
+
+table = '13 17 23 26 27 31 32 35 45 46 53 54 62 64 67 71 72 76'
+graph = 'ab ad af ba be bf cf cg da de eb ed eg ge gc fa fb fc'
+
+for per in permutations('abcdefg'):
+    new_graph = table
+    for i in range(1, 8):
+        new_graph = new_graph.replace(str(i), per[i-1])
+    if set(graph.split()) == set(new_graph.split()):
+        print(*per)
